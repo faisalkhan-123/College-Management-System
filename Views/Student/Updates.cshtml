@@ -1,0 +1,294 @@
+﻿
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/StudentLayout.cshtml";
+}
+
+@model College_Management_System.Models.Admin
+
+<div class="container my-4 mb-5">
+    <h2 class="text-center mb-4">Admission Form</h2>
+
+    @using (Html.BeginForm("Updates", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.STUDENTID)
+
+        <!-- Student Information -->
+        <div class="form-section">
+            <div class="section-title">1 Student Information</div>
+            <hr class="h-50">
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Student Name*</label>
+                    @Html.TextBoxFor(m => m.Studentname, new { @class = "form-control boxshadow", placeholder = "Name of Student", required = "required" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Registration No</label>
+                    @Html.TextBoxFor(m => m.rollnumber, new { @class = "form-control boxshadow", placeholder = "Registration No", @readonly = "readonly" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Picture - Optional</label>
+                    <input type="file" class="form-control boxshadow" name="Picture" />
+                    @if (!string.IsNullOrEmpty(Model.PicturePath))
+                    {
+                        <img src="~/updates/@Model.PicturePath" width="100" height="100" />
+                    }
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Date of Admission</label>
+                    @Html.TextBoxFor(m => m.DOA, "{0:yyyy-MM-dd}", new { @class = "form-control boxshadow", type = "date", required = "required" })
+
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Select Course</label>
+                    @Html.DropDownListFor(m => m.Course,
+                        new List<SelectListItem> {
+                            new SelectListItem { Text="BCA", Value="BCA"},
+                            new SelectListItem { Text="MCA", Value="MCA"},
+                            new SelectListItem { Text="Bcom", Value="Bcom"},
+                            new SelectListItem { Text="MA", Value="MA"},
+                            new SelectListItem { Text="Diploma", Value="Diploma"},
+                            new SelectListItem { Text="Btech", Value="Btech"}
+                        },
+                        "Select",
+                        new { @class = "form-select" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Discount in Fee</label>
+                    @Html.TextBoxFor(m => m.DiscountFees, new { @class = "form-control boxshadow", placeholder = "In %", type = "number" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Pincode</label>
+                    @Html.TextBoxFor(m => m.Pincode, new { @class = "form-control boxshadow", placeholder = "Pincode", type = "number" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">College Name</label>
+                    @Html.TextBoxFor(m => m.rollnumber, new { @class = "form-control boxshadow", placeholder = "College Name" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Mobile No. for SMS/WhatsApp</label>
+                    @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control boxshadow", placeholder = "+91xxxxxxxxxx" })
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Information -->
+        <div class="form-section">
+            <div class="section-title">2 Other Information</div>
+            <hr class="h-50">
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Date of Birth *</label>
+                    @Html.TextBoxFor(m => m.DOB, "{0:yyyy-MM-dd}", new { @class = "form-control boxshadow", type = "date" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Email</label>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control boxshadow", placeholder = "Student Email" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Orphan Student</label>
+                    @Html.DropDownListFor(m => m.Orphan,
+                        new List<SelectListItem> {
+                            new SelectListItem { Text="Yes", Value="Yes"},
+                            new SelectListItem { Text="No", Value="No"}
+                        },
+                        "Select",
+                        new { @class = "form-select" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Gender</label>
+                    @Html.DropDownListFor(m => m.Gender,
+                        new List<SelectListItem> {
+                            new SelectListItem { Text="Male", Value="Male"},
+                            new SelectListItem { Text="Female", Value="Female"},
+                            new SelectListItem { Text="Other", Value="Other"}
+                        },
+                        "Gender",
+                        new { @class = "form-select" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Cast</label>
+                    @Html.TextBoxFor(m => m.Cast, new { @class = "form-control boxshadow", placeholder = "Cast" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">OSC</label>
+                    @Html.DropDownListFor(m => m.OSC,
+                        new List<SelectListItem> {
+                            new SelectListItem { Text="Yes", Value="Yes"},
+                            new SelectListItem { Text="No", Value="No"}
+                        },
+                        "OSC",
+                        new { @class = "form-select" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Semester</label>
+                    @Html.DropDownListFor(m => m.Semester,
+                        new List<SelectListItem> {
+                            new SelectListItem { Text="First", Value="First"},
+                            new SelectListItem { Text="Second", Value="Second"},
+                            new SelectListItem { Text="Third", Value="Third"},
+                            new SelectListItem { Text="Fourth", Value="Fourth"},
+                            new SelectListItem { Text="Five", Value="Five"},
+                            new SelectListItem { Text="Six", Value="Six"}
+                        },
+                        "Semester",
+                        new { @class = "form-select" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Previous School</label>
+                    @Html.TextBoxFor(m => m.Pschool, new { @class = "form-control boxshadow", placeholder = "Previous School" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Religion</label>
+                    @Html.DropDownListFor(m => m.Religion,
+                        new List<SelectListItem> {
+                            new SelectListItem { Text="Hindu", Value="Hindu"},
+                            new SelectListItem { Text="Muslim", Value="Muslim"},
+                            new SelectListItem { Text="Buddhism", Value="Buddhism"},
+                            new SelectListItem { Text="Christinity", Value="Christinity"}
+                        },
+                        "Religion",
+                        new { @class = "form-select" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Blood Group</label>
+                    @Html.DropDownListFor(m => m.BloodGR,
+                        new List<SelectListItem> {
+                            new SelectListItem { Text="A+", Value="A+"},
+                            new SelectListItem { Text="A-", Value="A-"},
+                            new SelectListItem { Text="B+", Value="B+"},
+                            new SelectListItem { Text="B-", Value="B-"},
+                            new SelectListItem { Text="AB+", Value="AB+"},
+                            new SelectListItem { Text="AB-", Value="AB-"}
+                        },
+                        "Blood Group",
+                        new { @class = "form-select" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Previous ID / Board Roll No</label>
+                    @Html.TextBoxFor(m => m.PriviousID, new { @class = "form-control boxshadow", placeholder = "Previous ID" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Disease If Any?</label>
+                    @Html.TextBoxFor(m => m.Disease, new { @class = "form-control boxshadow", placeholder = "Disease" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Current Status</label>
+                    @Html.DropDownListFor(m => m.Status,
+                        new List<SelectListItem> {
+                            new SelectListItem { Text="Active", Value="Active"},
+                            new SelectListItem { Text="Inactive", Value="Inactive"},
+                            new SelectListItem { Text="Passed Out", Value="Passed Out"}
+                        },
+                        "Current Status",
+                        new { @class = "form-select" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Address</label>
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control boxshadow", placeholder = "Address" })
+                </div>
+            </div>
+        </div>
+
+        <!-- Father Information -->
+        <div class="form-section">
+            <div class="section-title">3 Father/Guardian Information</div>
+            <hr class="h-50">
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Father Name</label>
+                    @Html.TextBoxFor(m => m.FatherName, new { @class = "form-control boxshadow", placeholder = "Father Name" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Father National ID</label>
+                    @Html.TextBoxFor(m => m.FNID, new { @class = "form-control boxshadow", placeholder = "Father National ID" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Education</label>
+                    @Html.TextBoxFor(m => m.Education, new { @class = "form-control boxshadow", placeholder = "Education" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Mobile No</label>
+                    @Html.TextBoxFor(m => m.FMobile, new { @class = "form-control boxshadow", placeholder = "Mobile No" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Profession</label>
+                    @Html.TextBoxFor(m => m.Profession, new { @class = "form-control boxshadow", placeholder = "Profession" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Income</label>
+                    @Html.TextBoxFor(m => m.Income, new { @class = "form-control boxshadow", placeholder = "Income" })
+                </div>
+            </div>
+        </div>
+
+        <!-- Mother Information -->
+        <div class="form-section">
+            <div class="section-title">4 Mother Information</div>
+            <hr class="h-50">
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Mother Name</label>
+                    @Html.TextBoxFor(m => m.MotherName, new { @class = "form-control boxshadow", placeholder = "Mother Name" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Mother National ID</label>
+                    @Html.TextBoxFor(m => m.MNID, new { @class = "form-control boxshadow", placeholder = "Mother National ID" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Education</label>
+                    @Html.TextBoxFor(m => m.MEducation, new { @class = "form-control boxshadow", placeholder = "Education" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Mobile No</label>
+                    @Html.TextBoxFor(m => m.MMobile, new { @class = "form-control boxshadow", placeholder = "Mobile No" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Profession</label>
+                    @Html.TextBoxFor(m => m.MProfession, new { @class = "form-control boxshadow", placeholder = "Profession" })
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Income</label>
+                    @Html.TextBoxFor(m => m.MIncome, new { @class = "form-control boxshadow", placeholder = "Income" })
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary signup-btn">Update</button>
+    }
+</div>

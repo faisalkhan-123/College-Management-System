@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewBag.Title = "Sign";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .left-panel {
+        background: linear-gradient(180deg, #002b80, #004080);
+        color: white;
+        padding: 40px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+        .left-panel h3 {
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .left-panel input {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+    .signup-btn {
+        width: 100%;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .right-panel {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: white;
+        text-align: center;
+    }
+
+        .right-panel h2 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .right-panel p {
+            font-size: 16px;
+            color: #444;
+        }
+
+    .top-login {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+    }
+
+        .top-login a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+
+    .right-panel img {
+        max-width: 550px;
+        margin: 30px auto 0;
+    }
+</style>
+@if (ViewBag.Success != null && ViewBag.Success == true)
+{
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left Side (Form) -->
+           <div class="col-12 col-md-4 mt-4 text-center">
+               <h4 style="font-weight:700;">Register Your account</h4><br /><br /><br />
+               <h2 style="color: #0f5ef7; font-weight: 900;">Congratulations !</h2>
+               <h5>Account Setup Is Completed</h5><br />
+               <p class="justify-content-center p-3">
+                   We've sent you an email containing all th information about your account and some useful links. Please have a look
+                   and enjoy the world of free college by loging in.
+               </p>
+               <a href="@Url.Action("login", "Home")" class="btn btn-primary">Login to Dashboard</a><br /><br />
+               <a class="text-decoration-none text-light" href="/home/Sign">Back to Sign Up</a>
+           </div>
+            <div class="col-12 col-md-8 right-panel text-primary">
+                <h2>Start managing free now!</h2>
+                <p>
+                    eSkooly is a 100% free online <b>College</b> management software<br>
+                    for a lifetime with no limitations.
+                </p>
+                <img src="~/Content/images/signk.png" alt="Illustration">
+            </div>
+        </div>
+            </div>
+            }
+            else
+            {
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Left Side (Form) -->
+                    <div class="col-12 col-md-4 left-panel text-center">
+        <h4 style="font-weight:700;">Register Your account</h4>
+        <form method="post" onsubmit="return validation()">
+            <input type="email" placeholder="Your Email *" class="form-control " required name="email">
+            <input type="password" placeholder="Choose Password *" class="form-control password" required name="password">
+            <input type="password" placeholder="Confirm Password *" class="form-control cpassword" required name="cpassword">
+            <select class="form-control" name="UserRole">
+                <option>Admin</option>
+                    </select><br />
+            <div class="form-check form-switch">
+                <input type="checkbox" class="Check">
+                <label class="form-check-label" for="terms">
+                    Accept our
+                    <a href="#" class="text-white">Terms & Conditions</a>
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary signup-btn">Sign up</button>
+            <b id="error" style="color:red;">@ViewBag.SignMessage</b>
+        </form>
+        <br />
+        <a href="@Url.Action("login", "Home")" class="text-decoration-none"><p class="pcolor">have an account ? login</p></a>
+    </div>
+                    <!-- Right Side (Info) -->
+                    <div class="col-12 col-md-8 right-panel text-primary">
+                        <h2>Start managing free now!</h2>
+                        <p>
+                            eSkooly is a 100% free online <b>College</b> management software<br>
+                            for a lifetime with no limitations.
+                        </p>
+                        <img src="~/Content/images/signk.png" alt="Illustration">
+                    </div>
+                </div>
+
+            </div>
+            }
+
+            <script>
+                function validation() {
+                    var password = document.getElementsByClassName("password")[0].value.trim();
+                    var cpassword = document.getElementsByClassName("cpassword")[0].value.trim();
+                    var error = document.getElementById("error");
+
+                    error.innerText = "";
+
+                    if (password !== cpassword) {
+                        error.innerText = "⚠️ Passwords do not match!";
+                        return false;
+                    }
+                    var check = document.getElementsByClassName("Check")[0];
+                    if (!check.checked) {
+                        error.innerText = "⚠️ Please accept Terms & Conditions!";
+                        return false;
+                    }
+
+                    return true;
+                }
+            </script>

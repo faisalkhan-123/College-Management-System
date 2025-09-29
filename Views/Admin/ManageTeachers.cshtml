@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewBag.Title = "ManageTeachers";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+
+
+
+<div class="container my-4">
+    <h2 class="text-center mb-4">Admission Form</h2>
+    <h1>@ViewBag.Error</h1>
+
+    <!-- Student Information -->
+    <form method="post" enctype="multipart/form-data">
+
+        <div class="form-section">
+            <div class="section-title">1 Teacher Information</div>
+            <hr class="h-50">
+
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Teacher Name*</label>
+                    <input type="text" class="form-control boxshadow" required name="TeacherName" placeholder="Teacher Name*">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Teacher Id</label>
+                    <input type="text" class="form-control boxshadow" required name="TeacherId" placeholder="Teacher Id*" readonly>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Picture - Optional</label>
+                    <input type="file" class="form-control boxshadow" name="Picture">
+                    <div class="note">Max size 100KB</div>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip" required>Date of Joining*</label>
+                    <input type="date" class="form-control boxshadow" name="DOJ">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Employee Role*</label>
+                    <select class="form-select" name="EmployeeRole">
+                        <option selected disabled>Select</option>
+                        <option>Principle</option>
+                        <option>Management Staff</option>
+                        <option>Teacher</option>
+                        <option>Accountant</option>
+                        <option>Store Manager</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Monthly Salary*</label>
+                    <input type="text" class="form-control boxshadow" required name="MonthlySalary" placeholder="Monthly Salary*">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip" required>Mobile No for SMS/WhatsApp</label>
+                    <input type="text" class="form-control boxshadow" placeholder="+44xxxxxxxxxx" name="TeacherMobile">
+                </div>
+            </div>
+        </div>
+        <!--  Other Information Information -->
+        <div class="form-section">
+            <div class="section-title">3  Other Information</div>
+            <hr class="h-50">
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Father / Husband Name</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Father / Husband Name" name="FatherName">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Date of Birth *</label>
+                    <input type="date" class="form-control boxshadow" placeholder="Date of Birth" name="DOB">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Email</label>
+                    <input type="email" class="form-control boxshadow" required name="Email" placeholder="Student Email">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Experience</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Experience" name="Experience">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Gender</label>
+                    <select class="form-select" name="Gender">
+                        <option selected disabled>Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Religion</label>
+                    <select class="form-select" name="Religion">
+                        <option selected disabled>Religion</option>
+                        <option>Hindu</option>
+                        <option>Muslim</option>
+                        <option>Buddhism</option>
+                        <option>Christinity</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Blood Group</label>
+                    <select class="form-select" name="BloodGR">
+                        <option selected disabled>Blood Group</option>
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Education</label>
+                    <input type="text" class="form-control boxshadow" name="Education" placeholder="Education">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional" required>Address</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Address" name="Address">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label class="form-label-chip" required>Teacher email</label>
+                    <input type="text" class="form-control boxshadow" required placeholder="Teacher email" name="email">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label class="form-label-chip" required>Teacher password</label>
+                    <input type="password" class="form-control boxshadow" required placeholder="Teacher password" name="password">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label class="form-label-chip" required>Teacher Confirm password</label>
+                    <input type="password" class="form-control boxshadow" required placeholder="Teacher Confirm password" name="cpassword">
+                </div>
+                <div class="col-md-6 form-group">
+                    <select class="form-control boxshadow" name="UserRole">
+                        <option>Teacher</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-5">
+            <input type="submit" value="Submit" class="btn btn-primary mb-5 text-center" />
+            <input type="reset" value="Reset" class="btn btn-primary mb-5 text-center" />
+        </div>
+    </form>
+</div>
+
+
+
+
+<!--start teacher login -->
+@*<div class="form-section">
+        <div class="section-title">5  Portal Teacher</div>
+        <hr class="h-50">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label class="form-label-chip" required name="Studentname">Student Name</label>
+                <input type="text" class="form-control boxshadow" placeholder="Portal Username">
+            </div>
+
+            <div class="col-md-6 form-group">
+                <label class="form-label-chip" required name="PortalPass">Portal Password</label>
+                <input type="text" class="form-control boxshadow" placeholder="Portal Password">
+            </div>
+        </div>
+    </div>*@
+
+

@@ -1,0 +1,30 @@
+﻿
+@model System.Data.DataTable
+
+<h2 class="text-center text-primary">list</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>StudentId</td>
+            <td>Email</td>
+            <td>Password</td>
+            <td>Confirm Pssword</td>
+            <td>UserRole</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(System.Data.DataRow rows in Model.Rows)
+            {
+                <tr>
+                    <td>@rows["studentId"]</td>
+                    <td>@rows["email"]</td>
+                    <td>@rows["password"]</td>
+                    <td>@rows["cpassword"]</td>
+                    <td>@rows["UserRole"]</td>
+                    <td><a href="/home/updatesignUp?studentId=@rows["studentId"]" class="btn btn-danger">Edit</a>&nbsp;&nbsp;<a href="/home/deletesignUp?studentId=@rows["studentId"]" class="btn btn-danger">Delete</a></td>
+                </tr>
+            }
+    </tbody>
+</table>
+

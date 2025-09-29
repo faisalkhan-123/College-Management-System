@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/teacher_layout.cshtml";
+}
+<style>
+    .box {
+        height: 160px;
+        width: 150px;
+        float: left;
+        background: white;
+        margin-left: 13px;
+        margin-top: 30px;
+        border-radius: 10px;
+        font-weight: 800;
+    }
+
+    .underSt {
+        text-align: center;
+        padding-top: 50px;
+        color: black;
+    }
+
+    .profile {
+        height: 400px;
+        width: 260px;
+        background: white;
+        float: left;
+        margin-top: 30px;
+        border-radius: 10px;
+        margin-left: 20px;
+        box-sizing: border-box;
+    }
+
+    .profiler {
+        text-align: center;
+        padding-left: 10px;
+        padding-top: 35px;
+    }
+
+    .img-st {
+        border-radius: 50px;
+    }
+
+    .icon {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .h {
+        color: black;
+    }
+
+        .h:hover {
+            color: red;
+        }
+</style>
+<h2 class="text-center text-primary fs-1">Hi  @Session["TeacherName"]</h2>
+@foreach (System.Data.DataRow row in Model.Rows)
+{
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="box shadow-sm">
+                <div class="underSt">
+                    <a href="/Teacher/updateteacher?id=@row["id"]" class="text-decoration-none pb-4">
+                        <i class="fa-solid fa-user fs-3 text-black"></i><br /><br />
+                        <h5 class="text-black">Teacher Profile</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="box shadow-sm">
+                <div class="underSt">
+                    <a href="#" class="text-decoration-none pb-4">
+                        <i class="fa-solid fa-user fs-3 text-black"></i><br /><br />
+                        <h5 class="text-black">Student Attendance</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="box shadow-sm">
+                <div class="underSt">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fas fa-file-alt fs-3 text-black"></i><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <h5 class="text-black">Study Materials</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="box shadow-sm">
+                <div class="underSt">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fas fa-user-shield  fs-3 text-black"></i><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <h5 class="text-black">Attendence</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="box shadow-sm">
+                <div class="underSt">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fas fa-check-circle fs-3 text-black"></i><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <h5 class="text-black">Exam Duty</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="box shadow-sm">
+                <div class="underSt">
+                    <a href="#" class="text-decoration-none pb-4">
+                        <i class="fa-solid fa-lock fs-3 text-black"></i><br /><br />
+                        <h5 class="text-black">Change Password</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="box shadow-sm">
+                <div class="underSt">
+                    <a href="#" class="text-decoration-none pb-4">
+                        <i class="fa-solid fa-book-open fs-3 text-black"></i><br /><br />
+                        <h5 class="text-black">Time Table</h5>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box shadow-sm">
+                <div class="underSt">
+                    <a href="#" class="text-decoration-none pb-4">
+                        <i class="fa fa-question-circle fs-3 text-black"></i><br /><br />
+                        <h5 class="text-black">Online Test Creation</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="profile shadow-sm">
+                <div class="profiler">
+                    <a href="#" class="text-decoration-none text-black ">
+                        <img src="/admin/showteacher?filename=@row["Picture"]" height="110px" width="110px" class="img-st" />
+                    </a><br /><br />
+                    <span class="fs-4">@row["TeacherName"]</span> <i class="fa-solid fa-circle-check text-primary"></i><br />
+                    <span class="fs-5">@row["EmployeeRole"]</span><br />
+                    <span class="fs-5">@row["TeacherId"]</span>
+                    <br /><br />
+                    <div class="icon">
+                        <a href="#"><i class="fa-brands fa-facebook text-primary"></i></a>&nbsp;
+                        <a href="#"><i class="fa-brands fa-square-twitter text-secondary"></i></a>&nbsp;
+                        <a href="#"><i class="fa-brands fa-linkedin text-warning"></i></a>&nbsp;
+                        <a href="#"><i class="fa-brands fa-youtube text-danger"></i></a>&nbsp;
+                    </div>
+                    <div class="fs-5 text-center mt-3">
+                        <a href="/Teacher/updateteacher?id=@row["id"]" class="text-decoration-none h"><span>Go To Profile</span></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}

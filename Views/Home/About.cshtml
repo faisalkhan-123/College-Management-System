@@ -1,0 +1,29 @@
+﻿@model System.Data.DataTable
+    <h1 class="text-danger">Contact List</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Student Id</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Number</td>
+            <td>Message</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(System.Data.DataRow row in Model.Rows)
+            {
+                <tr>
+                    <td>@row["contactId"]</td>
+                    <td>@row["firstname"]</td>
+                    <td>@row["lastname"]</td>
+                    <td>@row["email"]</td>
+                    <td>@row["number"]</td>
+                    <td>@row["message"]</td>
+                    <td><a href="/home/update?contactId=@row["contactId"]" class="btn btn-danger">Edit</a>&nbsp;&nbsp;<a href="/home/delete?contactId=@row["contactId"]" class="btn btn-danger">Delete</a></td>
+                </tr>
+            }
+    </tbody>
+</table>

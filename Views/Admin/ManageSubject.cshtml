@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "ManageSubject";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+
+<style>
+    body {
+        background: #f6f7fb;
+    }
+
+    .form-section {
+        border-radius: 10px;
+        padding: 25px;
+        margin-bottom: 20px;
+
+    }
+
+    .section-title {
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: black;
+    }
+
+    .form-group {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .form-label-chip {
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        background: #6b6ae4;
+        padding: 0 6px;
+        font-size: 11px;
+        font-weight: 500;
+        color: white;
+        border-radius: 7px;
+    }
+
+    .form-label-chip-optional {
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        background: #8892aa;
+        padding: 0 6px;
+        font-size: 11px;
+        font-weight: 500;
+        color: white;
+        border-radius: 7px;
+    }
+
+    .boxshadow, .form-select {
+        height: 50px;
+        font-size: 15px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 2px 5px #f6f7fb inset;
+    }
+
+    .note {
+        font-size: 12px;
+        color: orange;
+        margin-top: 3px;
+    }
+
+    .btn-primary {
+        padding: 10px 40px;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="container my-4 sh">
+    <h2 class="text-center mb-4">Subject </h2>
+
+    <form method="post">
+        <!-- Student Information -->
+        <div class="form-section">
+            <div class="section-title">Subject Information</div>
+            <hr class="h-50">
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Subject Name*</label>
+                    <input type="text" class="form-control boxshadow" required name="SubjectName" placeholder="Subject Name*">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip" required name="SubjectCode">Subject Code</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Course Code">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Course*</label>
+                    <select class="form-select" name="CourseId">
+                        @*course table se aayega*@
+                                        <option selected disabled>Select</option>
+                                        <option>3 Years</option>
+                                        <option>4 years</option>
+                                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Semester*</label>
+                    <select class="form-select" name="Semester">
+                        <option selected disabled>Select</option>
+                        <option>First</option>
+                        <option>Second</option>
+                        <option>Third</option>
+                        <option>Fourth</option>
+                        <option>Five</option>
+                        <option>Six</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Subject Type*</label>
+                    <input type="text" class="form-control boxshadow" required name="Subject Type" placeholder="Subject Type">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Status</label>
+                    <select class="form-select" name="Status">
+                        <option selected disabled>Status</option>
+                        <option>Active</option>
+                        <option>Inactive</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mb-5">
+            <input type="submit" value="Save" class="btn btn-primary mb-5 text-center" />
+            <input type="reset" value="Reset" class="btn btn-primary mb-5 text-center" />
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+

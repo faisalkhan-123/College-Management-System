@@ -1,0 +1,270 @@
+﻿@{
+    ViewBag.Title = "ManageStudents";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+
+<style>
+    .box{
+        height: 170px;
+        width: 150px;
+        background: white;
+        margin-left: 10px;
+        border: 3px dotted blue;
+        text-decoration:none;
+        text-align:center;
+        padding-top:25px;
+        font-size:30px;
+
+    }
+    .cardId {
+        height: 200px;
+        width: 160px;
+        background: white;
+        border-radius: 20px;
+        border:1px solid gray;
+    }
+    .card{
+        height:90px;
+        width:90px;
+        margin-left:24px;
+        margin-top:15px;
+        border-radius:50px;
+        border:none;
+    }
+    .iconlink{
+        border-radius:4px;
+        padding-left:4px;
+        margin-left:14px;
+    }
+        .iconlink p {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            /* Position */
+            position: absolute;
+            top: 270px;
+            left: 300px;
+        }
+        .iconlink:hover p {
+            visibility: visible;
+        }
+    .iconlin{
+        border-radius:4px;
+        padding-left:4px;
+        margin-left:14px;
+    }
+        .iconlin p {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 3px;
+            border-radius: 5px;
+            /* Position */
+            position: absolute;
+            top: 270px;
+            left: 350px;
+        }
+        .iconlin:hover p {
+            visibility: visible;
+        }
+    .iconli {
+        border-radius: 4px;
+        padding-left: 4px;
+        margin-left: 14px;
+    }
+        .iconli p {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 3px;
+            border-radius: 5px;
+            /* Position */
+            position: absolute;
+            top: 270px;
+            left: 380px;
+        }
+        .iconli:hover p {
+            visibility: visible;
+        }
+    .newadd{
+        float:left;
+    }
+</style>
+<div class="container my-4  ">
+    <!-- Student Information -->
+    @foreach (System.Data.DataRow row in Model.Rows)
+    {
+        <div class="form-section newadd ">
+            <div class="row">
+                <div class="col-sm-4 cardId shadow-sm">
+                    <img src="/admin/show?filename=@row["Picture"]" class="card" />
+                    <p class="text-center ">@row["Studentname"]<br /> @row["RegistrationNo"]</p>
+                    <span class="text-dark iconlink">
+                        <a href="/admin/OnlyListallStudents"><i class="fa-solid fa-magnifying-glass text-black"></i></a>
+                        <p>View</p>
+                    </span>
+                    <span class="iconlink text-primary iconlin">
+                        <td>
+                            <a href="/admin/Update?STUDENTID=@row["STUDENTID"]"><i class="fa-solid fa-pencil"></i></a>
+                            <p>edit</p>
+                    </span>
+                    <span class="text-danger iconli">
+                        <a href="/admin/Delete?STUDENTID=@row["STUDENTID"]"><i class="fa-solid fa-trash-can text-danger"></i></a>
+                        <p>Delete</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="col-sm-6 mt-5 newadd">
+        <a href="/admin/ManageStudents" class="text-decoration-none">
+            <div class="box shadow-lg">
+                + <h3>New</h3>
+            </div>
+        </a>
+    </div>
+</div>
+<h1>@ViewBag.AddMessage</h1>
+<!--start student login -->
+@*<div class="form-section">
+        <div class="section-title"> 5 Portal Student  </div>
+        <hr class="h-50">
+        <form method="post">
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label class="form-label-chip" required>Income</label>
+                    <input type="text" class="form-control boxshadow" required placeholder="Student email" name="email">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label class="form-label-chip" required>Income</label>
+                    <input type="password" class="form-control boxshadow" required placeholder="Student password" name="password">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label class="form-label-chip" required>Income</label>
+                    <input type="password" class="form-control boxshadow" required placeholder="Student Confirm password" name="cpassword">
+                </div>
+                <div class="col-md-6 form-group">
+                    <select class="form-control boxshadow" name="UserRole">
+                        <option>Student</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary signup-btn">Sign up</button>
+        </form>
+    </div>*@
+
+
+@*@model System.Data.DataTable
+    <table class="table table-bordered text-bg-dark">
+        <thead class="text-center">
+            <tr>
+                <td>Student Id</td>
+                <td>Student Name</td>
+                <td>Registration No</td>
+                <td>Picture</td>
+                <td>Date Of Addmission</td>
+                <td>Course</td>
+                <td>DiscountFees</td>
+                <td>Pincode</td>
+                <td>College Name</td>
+                <td>Mobile</td>
+                <td>Date of Birthday</td>
+                <td>Student Email</td>
+                <td>Orphan</td>
+                <td>Gender</td>
+                <td>Cast</td>
+                <td>OSC</td>
+                <td>Semester</td>
+                <td>Pschool</td>
+                <td>Religion</td>
+                <td>BloodGR</td>
+                <td>PriviousID</td>
+                <td>Disease</td>
+                <td>Status</td>
+                <td>Address</td>
+                <td>FatherName</td>
+                <td>FNID</td>
+                <td>Education</td>
+                <td>FMobile</td>
+                <td>Profession</td>
+                <td>Income</td>
+                <td>MotherName</td>
+                <td>MNID</td>
+                <td>MEducation</td>
+                <td>MMobile</td>
+                <td>MProfession</td>
+                <td>MIncome</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (System.Data.DataRow row in Model.Rows)
+            {
+                <tr>
+                    <td>@row["STUDENTID"]</td>
+                    <td>@row["Studentname"]</td>
+                    <td>@row["RegistrationNo"]</td>
+                    <td><img src="/admin/show?filename=@row["Picture"]" height:" 50px" width="50px" /></td>
+                    <td>@row["DOA"]</td>
+                    <td>@row["Course"]</td>
+                    <td>@row["DiscountFees"]</td>
+                    <td>@row["Pincode"]</td>
+                    <td>@row["rollnumber"]</td>
+                    <td>@row["Mobile"]</td>
+                    <td>@row["DOB"]</td>
+                    <td>@row["Email"]</td>
+                    <td>@row["Orphan"]</td>
+                    <td>@row["Gender"]</td>
+                    <td>@row["Cast"]</td>
+                    <td>@row["OSC"]</td>
+                    <td>@row["Semester"]</td>
+                    <td>@row["Pschool"]</td>
+                    <td>@row["Religion"]</td>
+                    <td>@row["BloodGR"]</td>
+                    <td>@row["PriviousID"]</td>
+                    <td>@row["Disease"]</td>
+                    <td>@row["Status"]</td>
+                    <td>@row["Address"]</td>
+                    <td>@row["FatherName"]</td>
+                    <td>@row["FNID"]</td>
+                    <td>@row["Education"]</td>
+                    <td>@row["FMobile"]</td>
+                    <td>@row["Profession"]</td>
+                    <td>@row["Income"]</td>
+                    <td>@row["MotherName"]</td>
+                    <td>@row["MNID"]</td>
+                    <td>@row["MEducation"]</td>
+                    <td>@row["MMobile"]</td>
+                    <td>@row["MProfession"]</td>
+                    <td>@row["MIncome"]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+*@
+
+@*<div class="container my-4 mb-5">
+        <h2 class="text-center mb-4">Admission Form</h2>
+    </div>
+
+    <style>
+        body {
+            background: white;
+        }
+
+        .box {
+            height: 150px;
+            width: 150px;
+            background: white;
+            margin-left: 10px;
+            border: 4px dotted blue;
+        }
+    </style>
+    <div class="box shadow-lg"></div>
+    <a href="/admin/ManageStudents"><button class="btn btn-primary mb-5">ADD New Student</button></a>*@

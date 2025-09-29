@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "ManageExams";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+
+<div class="container my-4 sh">
+    <form method="post">
+        <!-- Student Information -->
+        <div class="form-section mb-5">
+            <div class="section-title">Exam Information</div>
+            <hr class="h-50">
+            <div class="row">
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Exam ID</label>
+                    <input type="text" class="form-control" placeholder="Auto-generated" readonly />
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Exam Name</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Mid Term / Final Exam" required />
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Course</label>
+                    <select class="form-select">
+                        <option>-- Select Course --</option>
+                        <option>BCA</option>
+                        <option>MCA</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Department</label>
+                    <select class="form-select">
+                        <option>-- Select Department --</option>
+                        <option>Computer Science</option>
+                        <option>Management</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Semester*</label>
+                    <select class="form-select" name="Semester">
+                        <option selected disabled>Select</option>
+                        <option>First</option>
+                        <option>Second</option>
+                        <option>Third</option>
+                        <option>Fourth</option>
+                        <option>Five</option>
+                        <option>Six</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Semester</label>
+                    <select class="form-select">
+                        <option>1st</option>
+                        <option>2nd</option>
+                        <option>3rd</option>
+                        <option>4th</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Subject</label>
+                    <select class="form-select">
+                        <option>-- Select Subject --</option>
+                        <option>Programming in C</option>
+                        <option>Database Systems</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Exam Type</label>
+                    <select class="form-select">
+                        <option>Written</option>
+                        <option>Practical</option>
+                        <option>Viva</option>
+                        <option>Assignment</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Exam Date</label>
+                    <input type="date" class="form-control" required />
+                </div>
+                <!-- Exam Time -->
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Exam Time</label>
+                    <input type="time" class="form-control" required />
+                </div>
+                <!-- Total Marks -->
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Total Marks</label>
+                    <input type="number" class="form-control" />
+                </div>
+                <!-- Passing Marks -->
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Passing Marks</label>
+                    <input type="number" class="form-control" />
+                </div>
+
+                <!-- Venue -->
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Exam Venue</label>
+                    <input type="text" class="form-control" placeholder="Hall No / Lab" />
+                </div>
+
+                <!-- Status -->
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Status</label>
+                    <select class="form-select">
+                        <option>Active</option>
+                        <option>Inactive</option>
+                        <option>Completed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 text-center mb-lg-5">
+                <button type="submit" class="btn btn-success px-4">Save Exam</button>
+                <button type="reset" class="btn btn-secondary px-4">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>
+

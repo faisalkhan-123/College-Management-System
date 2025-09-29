@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "updateteacher";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+@model College_Management_System.Models.Teacher
+<input type="hidden" name="TeacherId" value="@Model.TeacherId" />
+
+<form method="post">
+    <input type="hidden" name="TeacherId" value="@Model.TeacherId" />
+
+    <div class="form-section">
+        <div class="section-title">1 Teacher Information</div>
+        <hr class="h-50">
+
+        <div class="row">
+
+            <div class="col-md-4 form-group">
+                <label>Teacher Name*</label>
+                <input type="text" name="TeacherName" class="form-control"
+                       value="@(Model?.TeacherName ?? "")" required />
+            </div>
+
+
+            <div class="col-md-4 form-group">
+                <label>Date of Joining</label>
+                <input type="date" name="DOJ" class="form-control"
+                       value="@(Model?.DOJ != DateTime.MinValue ? Model.DOJ.ToString("yyyy-MM-dd") : "")" />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label>Employee Role</label>
+                <input type="text" name="EmployeeRole" class="form-control"
+                       value="@(Model?.EmployeeRole ?? "")" />
+            </div>
+
+
+            <div class="col-md-4 form-group">
+                <label>Mobile</label>
+                <input type="text" name="TeacherMobile" class="form-control"
+                       value="@(Model?.TeacherMobile ?? "")" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">Other Information</div>
+        <hr class="h-50">
+
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label>Father Name</label>
+                <input type="text" name="FatherName" class="form-control"
+                       value="@(Model?.FatherName ?? "")" />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label>Date of Birth</label>
+                <input type="date" name="DOB" class="form-control"
+                       value="@(Model?.DOB != DateTime.MinValue ? Model.DOB.ToString("yyyy-MM-dd") : "")" />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label>Email</label>
+                <input type="email" name="Email" class="form-control"
+                       value="@(Model?.Email ?? "")" />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label>Experience</label>
+                <input type="text" name="Experience" class="form-control"
+                       value="@(Model?.Experience ?? "")" />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label>Gender</label>
+                <input type="text" name="Gender" class="form-control"
+                       value="@(Model?.Gender ?? "")" />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label>Religion</label>
+                <input type="text" name="Religion" class="form-control"
+                       value="@(Model?.Religion ?? "")" />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label>Blood Group</label>
+                <input type="text" name="BloodGR" class="form-control"
+                       value="@(Model?.BloodGR ?? "")" />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label>Education</label>
+                <input type="text" name="Education" class="form-control"
+                       value="@(Model?.Education ?? "")" />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label>Address</label>
+                <input type="text" name="Address" class="form-control"
+                       value="@(Model?.Address ?? "")" />
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mb-5">
+        <input type="submit" value="Update" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn btn-secondary" />
+    </div>
+</form>

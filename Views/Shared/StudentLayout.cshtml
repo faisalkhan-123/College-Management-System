@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="~/Content/jQuery/js/jquery-3.7.1.js"></script>
+    <link href="~/Content/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/all.min.css" rel="stylesheet" />
+    <script src="~/Content/js/bootstrap.bundle.js"></script>
+    <script src="~/Content/js/dataTables.min.js"></script>
+    <link href="~/Content/css/datatables.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        /* Header */
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+            .header .logo {
+                font-size: 30px;
+                font-weight: bold;
+                color: #007bff;
+            }
+
+            .header input {
+                width: 250px;
+            }
+
+            .header .icons i {
+                font-size: 18px;
+                margin-left: 20px;
+                cursor: pointer;
+            }
+        /* Sidebar */
+        .container-fluid {
+            height: 100vh; /* ✅ Full height */
+        }
+
+        .sidebar {
+            height: 100vh; /* screen ke full height tak sidebar */
+            background: #fff;
+            border-right: 1px solid #ddd;
+            padding-top: 20px;
+            width: 250px;
+            position: fixed; /* sidebar fix ho jaye */
+            overflow-y: auto; /* agar content jyada ho to scroll bar aaye */
+        }
+
+        .content-area {
+            margin-left: 25%; /* ya jitna sidebar width hai utna margin */
+            padding: 20px;
+        }
+
+        .main-content {
+            margin-left: 250px; /* ✅ Sidebar ke width ke barabar margin */
+            height: 100vh;
+            overflow-y: auto; /* ✅ Sirf content bhi alag scroll ho sakta hai */
+            padding: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+            .sidebar a:hover {
+                background: #007bff;
+                color: #fff;
+                border-radius: 5px;
+            }
+        /* Dashboard Cards */
+        .dashboard-card {
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .card-blue {
+            background: #0d6efd;
+        }
+
+        .card-gray {
+            background: #6c757d;
+        }
+
+        .card-red {
+            background: #dc3545;
+        }
+
+        .card-green {
+            background: #198754;
+        }
+
+        .container-fluid {
+            height: 100vh; /* ✅ Full height */
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+            .sidebar a:hover {
+                background: #007bff;
+                color: #fff;
+                border-radius: 5px;
+            }
+
+        .sidebar .collapse a {
+            font-size: 14px;
+            padding-left: 30px; /* thoda andar dikhane ke liye */
+        }
+
+        body {
+            background: #f6f7fb;
+        }
+
+        .form-section {
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-weight: 700;
+            font-size: 23px;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form-label-chip {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #6b6ae4;
+            padding: 0 6px;
+            font-size: 11px;
+            font-weight: 500;
+            color: white;
+            border-radius: 7px;
+        }
+
+        .form-label-chip-optional {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #8892aa;
+            padding: 0 6px;
+            font-size: 11px;
+            font-weight: 500;
+            color: white;
+            border-radius: 7px;
+        }
+
+        .boxshadow, .form-select {
+            height: 50px;
+            font-size: 15px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 2px 5px #f6f7fb inset;
+        }
+
+        .note {
+            font-size: 12px;
+            color: orange;
+            margin-top: 3px;
+        }
+
+        .btn-primary {
+            padding: 10px 40px;
+            border-radius: 8px;
+        }
+        .st-image{
+            border-radius:15px;
+            width:50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header row">
+        <div class="col-sm-2 logo">
+            CollegeMS
+        </div>
+        <div class="col-sm-2">
+            <input type="text" class="form-control d-inline" placeholder="Type here to search">
+        </div>
+        <div class="col-sm-5"></div>
+        <div class="col-sm-1 icons">
+            @*@foreach (System.Data.DataRow row in Model.Rows)
+            {
+                <a href="#" class="text-decoration-none text-black ">
+                    <img src="/admin/show?filename=@row["Picture"]" height="50px" class="st-image" />
+                </a>
+            }*@
+
+        </div>
+        <div class="col-sm-2">
+            <a href="/home/LogOut">
+                <button class="btn btn-primary">LogOut</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="sidebar p-2  my-0">
+                <h5 class="text-center">Menu</h5>
+                <a href="/Student/Dashboard"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+                <!-- Manage Students (Collapsible Menu) -->
+                <a class="d-flex justify-content-between align-items-center"
+                   data-bs-toggle="collapse" href="#studentMenu" role="button" aria-expanded="false">
+                    <span><i class="fa-solid fa-user"></i> Manage Students</span>
+                    <i class="fa fa-chevron-down"></i>
+                </a>
+                <a href="/Student/Print" class="ms-4 d-block">➤ Student Profile</a>
+                <a href="/Student/ChangePassword" class="ms-4 d-block">➤Attendence</a>
+                <a href="/Student/Update" class="ms-4 d-block">➤ Result</a>
+                <a href="/Student/PrintBasic" class="ms-4 d-block">➤ Today Task</a>
+                <a href="/Student/ChangePassword" class="ms-4 d-block">➤ Change Password</a>
+                <a href="/Student/PrintBasic" class="ms-4 d-block">➤ Exam Prepation</a>
+                <a href="/Student/PrintBasic" class="ms-4 d-block">➤ Online Test</a>
+                <a href="/Student/PrintBasic" class="ms-4 d-block">➤ Help</a>
+
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content col">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+    $(document).ready(function () {
+        $("#myTable").DataTable()
+    })
+</script>

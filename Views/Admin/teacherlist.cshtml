@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "teacherlist";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@model System.Data.DataTable
+<h2 class="text-center text-primary">Teacher list</h2>
+<table class="table shadow-lg mb-5" id="myTable">
+    <thead class="table table-bordered table-danger table-hover table-responsive">
+        <tr>
+            <td>Id</td>
+            <td>TeacherName</td>
+            <td>Teacher Picture</td>
+            <td>Teacher Id</td>
+            <td>DOJ</td>
+            <td>EmployeeRole</td>
+            <td>MonthlySalary</td>
+            <td>TeacherMobile</td>
+            <td>FatherName</td>
+            <td>DOB</td>
+            <td>Email</td>
+            <td>Experience</td>
+            <td>Gender</td>
+            <td>BloodGR</td>
+            <td>Religion</td>
+            <td>Education</td>
+            <td>Address</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (System.Data.DataRow row in Model.Rows)
+        {
+            <tr>
+                <td>@row["id"]</td>
+                <td>@row["TeacherName"]</td>
+                <td><img src="/admin/showteacher?filename=@row["Picture"]" height="50px" width="50px" /></td>
+                <td>@row["TeacherId"]</td>
+                <td>@row["DOJ"]</td>
+                <td>@row["EmployeeRole"]</td>
+                <td>@row["MonthlySalary"]</td>
+                <td>@row["TeacherMobile"]</td>
+                <td>@row["FatherName"]</td>
+                <td>@row["DOB"]</td>
+                <td>@row["Email"]</td>
+                <td>@row["Experience"]</td>
+                <td>@row["Gender"]</td>
+                <td>@row["BloodGR"]</td>
+                <td>@row["Religion"]</td>
+                <td>@row["Education"]</td>
+                <td>@row["Address"]</td>
+                <td>
+                    <a href="/admin/updateteacher?id=@row["id"]" class="btn btn-outline-dark">Edit</a>
+                    <a href="/admin/deleteteacher?id=@row["id"]"
+                       class="btn-delete btn btn-outline-dark"
+                       data-id="@row["id"]">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+$(document).ready(function(){
+
+    $(".btn-delete").click(function(e){
+        e.preventDefault();   // <-- anchor ka default redirect roka
+                                     var $row=$(this).closest("tr"); // jis row ka delete dabaya
+                                     var id=$(this).data("id"); // data-id se teacher id nikaali
+                                     $.ajax({
+                                     url: '/admin/deleteteacher' , // Controller action
+                                     type: 'POST' ,
+                                     data: { id: id },
+                                     success: function (res) {
+                                         if (res > 0) {
+                                           $row.fadeOut(); // row ko hide kar do
+                                           } else {
+                                           alert("Record delete nahi hua!");
+                                           }
+                                           },
+                                           error: function () {
+                                           alert("Error aayi!");
+                                           }
+                                           });
+                                           
+                                           });
+                                           
+                                           });
+    </script>
+

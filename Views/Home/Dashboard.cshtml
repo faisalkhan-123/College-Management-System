@@ -1,0 +1,38 @@
+﻿@if (Session["UserRole"] != null)
+    {
+        if (Session["UserRole"].ToString() == "Admin")
+        {
+            Response.Redirect("~/Admin/Dashboard");
+        }
+        else if (Session["UserRole"].ToString() == "Teacher")
+        {
+            Response.Redirect("~/Teacher/Dashboard");
+        }
+        else if (Session["UserRole"].ToString() == "Student")
+        {
+            Response.Redirect("~/Student/Dashboard");
+        }
+    }
+    else
+    {
+        Response.Redirect("~/home/Login"); // agar session null hai to login page
+    }
+@*@if (Session["UserRole"] != null)
+{
+    if (Session["UserRole"].ToString() == "Admin")
+    {
+        Response.Redirect("~/Admin/Dashboard");
+    }
+    if (Session["UserRole"].ToString() == "Teacher")
+    {
+        <h1>Welcome Teacher</h1>
+    }
+    if (Session["UserRole"].ToString() == "Student")
+    {
+    }
+    else
+    {
+        Response.Redirect("~/home/Login"); // agar session null hai to login page
+    }
+}*@
+

@@ -1,0 +1,287 @@
+﻿@{
+    ViewBag.Title = "ManageStudents";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+<h1>@ViewBag.ADDmessage</h1>
+<form method="post" enctype="multipart/form-data">
+
+    <div class="container my-4 mb-5">
+        <h2 class="text-center mb-4">Admission Form</h2>
+
+        <!-- Student Information -->
+        <div class="form-section">
+            <div class="section-title">1 Student Information</div>
+            <hr class="h-50">
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Student Name*</label>
+                    <input type="text" class="form-control boxshadow" required name="Studentname" placeholder="Name of Student">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Registration No</label>
+                    <input type="text" class="form-control boxshadow" required name="RegistrationNo" placeholder="Registration No" readonly>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Picture - Optional</label>
+                    <input type="file" class="form-control boxshadow" name="Picture">
+                    <div class="note">Max size 100KB</div>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip" required>Date of Admission</label>
+                    <input type="date" class="form-control boxshadow" name="DOA">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Select Course</label>
+                    <select class="form-select" name="Course">
+                        <option selected disabled>Select</option>
+                        <option>BCA</option>
+                        <option>MCA</option>
+                        <option>Bcom</option>
+                        <option>MA</option>
+                        <option>Diploma</option>
+                        <option>Btech</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip" required>Discount in Fee</label>
+                    <input type="number" class="form-control boxshadow" placeholder="In %" name="DiscountFees">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip" required>Pincode</label>
+                    <input type="number" class="form-control boxshadow" placeholder="Pincode" name="Pincode">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">College Name</label>
+                    <input type="text" class="form-control boxshadow" name="rollnumber" placeholder="College Name">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip" required>Mobile No. for SMS/WhatsApp</label>
+                    <input type="text" class="form-control boxshadow" name="Mobile" placeholder="+91xxxxxxxxxx">
+                </div>
+            </div>
+        </div>
+        <!-- Other Information Information-->
+        <div class="form-section">
+            <div class="section-title">3  Other Information</div>
+            <hr class="h-50">
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Date of Birth *</label>
+                    <input type="date" class="form-control boxshadow" placeholder="Date of Birth" name="DOB">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Email</label>
+                    <input type="email" class="form-control boxshadow" required name="Email" placeholder="Student Email">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Orphan Student</label>
+                    <select class="form-select" name="Orphan">
+                        <option selected disabled>Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Gender</label>
+                    <select class="form-select" name="Gender">
+                        <option selected disabled>Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Cast</label>
+                    <input type="text" class="form-control boxshadow" name="Cast" placeholder="Cast">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">OSC</label>
+                    <select class="form-select" name="OSC">
+                        <option selected disabled>OSC</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Semester</label>
+                    <select class="form-select" name="Semester">
+                        <option selected disabled>Semester</option>
+                        <option>First</option>
+                        <option>Second</option>
+                        <option>Third</option>
+                        <option>Fourth</option>
+                        <option>Five</option>
+                        <option>Six</option>
+                        Religion
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Previous School</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Previous School" name="Pschool">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Religion</label>
+                    <select class="form-select" name="Religion">
+                        <option selected disabled>Religion</option>
+                        <option>Hindu</option>
+                        <option>Muslim</option>
+                        <option>Buddhism</option>
+                        <option>Christinity</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Blood Group</label>
+                    <select class="form-select" name="BloodGR">
+                        <option selected disabled>Blood Group</option>
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Previous ID / Board Roll No</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Previous ID / Board Roll No" name="PriviousID">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Disease If Any?</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Disease If Any?" name="Disease">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Current Status</label>
+                    <select class="form-select" required name="Status">
+                        <option selected disabled>Current Status</option>
+                        <option>Active</option>
+                        <option>Inactive</option>
+                        <option>Passed Out</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional" required>Address</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Address" name="Address">
+                </div>
+            </div>
+        </div>
+        <!--Father  Information-->
+        <div class="form-section">
+            <div class="section-title"> 3 Father/Guardien Information </div>
+            <hr class="h-50">
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip" required>Father Name</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Father Name" name="FatherName">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Father National ID</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Father National ID" name="FNID">
+                </div>
+
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Education</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Education" name="Education">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip" required>Mobile No</label>
+                    <input type="number" class="form-control boxshadow" placeholder="Mobile No" name="FMobile">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Profession</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Profession" name="Profession">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Income</label>
+                    <input type="number" class="form-control boxshadow" placeholder="Income" name="Income">
+                </div>
+            </div>
+        </div>
+        <!--Mother  Information-->
+        <div class="form-section">
+            <div class="section-title">4  Mother Information</div>
+            <hr class="h-50">
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip" required>Mother Name</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Mother Name" name="MotherName">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Father National ID</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Father National ID" name="MNID">
+                </div>
+
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Education</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Education" name="MEducation">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Mobile No</label>
+                    <input type="number" class="form-control boxshadow" placeholder="Mobile No" name="MMobile">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional" required>Profession</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Profession" name="MProfession">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional" required>Income</label>
+                    <input type="number" class="form-control boxshadow" placeholder="Income" name="MIncome">
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary  mb-5">Sign up</button>
+
+</form>
+
+
+    <div class="form-section">
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="section-title"> 5 Portal Student  </div>
+            <hr class="h-50">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label class="form-label-chip" required>Income</label>
+                    <input type="text" class="form-control boxshadow" required placeholder="Student email" name="email">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label class="form-label-chip" required>Income</label>
+                    <input type="password" class="form-control boxshadow" required placeholder="Student password" name="password">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label class="form-label-chip" required>Income</label>
+                    <input type="password" class="form-control boxshadow" required placeholder="Student Confirm password" name="cpassword">
+                </div>
+                <div class="col-md-6 form-group">
+                    <select class="form-control boxshadow" name="UserRole">
+                        <option>Student</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary signup-btn mb-5">Sign up</button>
+        </form>
+
+    </div>
+
+

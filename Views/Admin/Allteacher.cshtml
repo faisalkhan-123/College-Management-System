@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewBag.Title = "Allteacher";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+
+<style>
+    .box {
+        height: 170px;
+        width: 150px;
+        background: white;
+        margin-left: 10px;
+        border: 3px dotted blue;
+        text-decoration: none;
+        text-align: center;
+        padding-top: 25px;
+        font-size: 30px;
+    }
+
+    .cardId {
+        height: 200px;
+        width: 160px;
+        background: white;
+        border-radius: 20px;
+        border: 1px solid gray;
+    }
+
+    .card {
+        height: 90px;
+        width: 90px;
+        margin-left: 24px;
+        margin-top: 15px;
+        border-radius: 50px;
+        border: none;
+    }
+
+    .iconlink {
+        border-radius: 4px;
+        padding-left: 4px;
+        margin-left: 14px;
+    }
+
+        .iconlink p {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            /* Position */
+            position: absolute;
+            top: 270px;
+            left: 300px;
+        }
+
+        .iconlink:hover p {
+            visibility: visible;
+        }
+
+    .iconlin {
+        border-radius: 4px;
+        padding-left: 4px;
+        margin-left: 14px;
+    }
+
+        .iconlin p {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 3px;
+            border-radius: 5px;
+            /* Position */
+            position: absolute;
+            top: 270px;
+            left: 350px;
+        }
+
+        .iconlin:hover p {
+            visibility: visible;
+        }
+
+    .iconli {
+        border-radius: 4px;
+        padding-left: 4px;
+        margin-left: 14px;
+    }
+
+        .iconli p {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 3px;
+            border-radius: 5px;
+            /* Position */
+            position: absolute;
+            top: 270px;
+            left: 380px;
+        }
+
+        .iconli:hover p {
+            visibility: visible;
+        }
+
+    .newadd {
+        float: left;
+    }
+</style>
+<div class="container my-4  ">
+    <!-- Student Information -->
+    @foreach (System.Data.DataRow row in Model.Rows)
+    {
+        <div class="form-section newadd ">
+            <div class="row">
+                <div class="col-sm-4 cardId shadow-sm">
+                    <img  src="/admin/showteacher?filename=@row["Picture"]"  class="card" />
+                    <p class="text-center ">@row["TeacherName"]<br /> @row["TeacherId"]</p>
+                    <span class="text-dark iconlink">
+                        <a href="/admin/OnlyListallStudents"><i class="fa-solid fa-magnifying-glass text-black"></i></a>
+                        <p>View</p>
+                    </span>
+                    <span class="iconlink text-primary iconlin">
+                            <a href="/admin/updateteacher?id=@row["id"]"><i class="fa-solid fa-pencil"></i></a>
+                            <p>edit</p>
+                    </span>
+                    <span class="text-danger iconli">
+                        <a href="/admin/deleteteacher?id=@row["id"]"
+                           class="btn-delete"
+                           data-id="@row["id"]"><i class="fa-solid fa-trash-can text-danger"></i></a>
+                        <p>Delete</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="col-sm-6 mt-5 newadd">
+        <a href="/admin/ManageStudents" class="text-decoration-none">
+            <div class="box shadow-lg">
+                + <h3>New</h3>
+            </div>
+        </a>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+        $(".btn-delete").click(function (e) {
+            e.preventDefault();   // <-- anchor ka default redirect roka
+
+            var $row = $(this).closest("tr"); // jis row ka delete dabaya
+            var id = $(this).data("id");      // data-id se teacher id nikaali
+
+            $.ajax({
+                url: '/admin/deleteteacher', // Controller action
+                type: 'POST',
+                data: { id: id },
+                success: function (res) {
+                    if (res > 0) {
+                        $row.fadeOut(); // row ko hide kar do
+                    } else {
+                        alert("Record delete");
+                    }
+                },
+                error: function () {
+                    alert("Error !");
+                }
+            });
+
+        });
+
+    });
+</script>

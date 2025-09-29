@@ -1,0 +1,37 @@
+﻿@model System.Data.DataRow
+<div class="row" id="#contact">
+    <div class="col-12 col-sm-6 ms-sm-5">
+        <input type="text" hidden name="contactId" value="@Model["contactId"]" />
+        <form method="post">
+            <div class="row mt-5 my-0">
+                <div class="col-12 col-sm-6">
+                    <label>First Name</label>
+                    <input type="text" placeholder="Enter your name" name="firstname" required class="form-control" value="@Model["firstname"]" /><br />
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Enter your name" name="lastname" required class="form-control" value="@Model["lastname"]" />
+                </div>
+                <div class="col-12 col-sm-6">
+                    <label>Email</label>
+                    <input type="email" placeholder="Enter your email" name="email" required class="form-control" value="@Model["email"]" /><br />
+                    <label>Number</label>
+                    <input type="number" placeholder="Enter your number" name="number" required class="form-control" value="@Model["number"]" /><br />
+                </div>
+                <label>Message</label>
+                <textarea id="message" class="form-control ms-2" name="message" required>@Model["message"]</textarea>
+            </div><br />
+            <span class="text-danger">@ViewBag.contactMessage</span>
+            <input type="submit" value="Send Message" class="btn btn-primary" /><br /><br /><br />
+        </form>
+    </div>
+
+    <div class="col-12 col-sm-5 mt-5 ms-sm-5">
+        <span id="email">Email</span>&nbsp;&nbsp;&nbsp;
+        <span id="address">Address</span>&nbsp;&nbsp;&nbsp;
+        <span id="contact">Conatct No</span><br /><br />
+        <p id="para"><i class="fa-solid fa-envelope"></i> khanf98923@gmail.com</p>
+        <p id="para1"><i class="fa-solid fa-location-dot"></i> Mahmudabad Sitapur U.P</p>
+        <p id="para2"><i class="fa-solid fa-phone"></i> +91 9198702644</p><br /><br /><br /><br />
+
+        <img src="~/Content/images/line-city.svg" class="img-fluid" />
+    </div>
+</div>

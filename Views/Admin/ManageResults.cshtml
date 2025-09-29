@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "ManageResults";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+
+
+<div class="container my-4 sh">
+    <form method="post">
+        <!-- manage  Result -->
+        <div class="form-section mb-5">
+            <div class="section-title">Manage Result</div>
+            <hr class="h-50">
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Result ID</label>
+                    <input type="text" class="form-control boxshadow" readonly>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Roll Number</label>
+                    <input type="text" class="form-control boxshadow" readonly>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Student Name</label>
+                    <input type="text" class="form-control boxshadow" readonly>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Course</label>
+                    <input type="text" class="form-control boxshadow" readonly>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Department</label>
+                    <input type="text" class="form-control boxshadow" readonly>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Semester</label>
+                    <input type="text" class="form-control boxshadow" readonly>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Exam Name</label>
+                    <select class="form-select">
+                        <option selected disabled>Select Exam</option>
+                        <option>Mid Term</option>
+                        <option>Final</option>
+                        <option>Internal Test</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Subject</label>
+                    <select class="form-select">
+                        <option selected disabled>Select Subject</option>
+                        <option>Maths</option>
+                        <option>Computer Science</option>
+                        <option>English</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Marks Obtained</label>
+                    <input type="number" class="form-control boxshadow" placeholder="Marks Obtained">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Total Marks</label>
+                    <input type="number" class="form-control boxshadow" placeholder="Total Marks">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Grade</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Grade (A, B, C...)">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Result Status</label>
+                    <select class="form-select">
+                        <option selected disabled>Select Status</option>
+                        <option>Pass</option>
+                        <option>Fail</option>
+                        <option>Absent</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label class="form-label-chip-optional">Remarks</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Any remarks">
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label class="form-label-chip">Publish Date</label>
+                    <input type="date" class="form-control boxshadow">
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-5">
+            <input type="submit" value="Submit" class="btn btn-primary mb-5 text-center" />
+            <input type="reset" value="Reset" class="btn btn-primary mb-5 text-center" />
+        </div>
+    </form>
+</div>
+
+

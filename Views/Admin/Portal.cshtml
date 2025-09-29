@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Portal";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+<form method="post">
+<div class="form-section">
+        <div class="section-title"> 5 Portal Student  </div>
+        <hr class="h-50">
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label class="form-label-chip" required>Income</label>
+                <input type="text" class="form-control boxshadow" required placeholder="Student email" name="email">
+            </div>
+            <div class="col-md-6 form-group">
+                <label class="form-label-chip" required>Income</label>
+                <input type="password" class="form-control boxshadow" required placeholder="Student password" name="password">
+            </div>
+            <div class="col-md-6 form-group">
+                <label class="form-label-chip" required>Income</label>
+                <input type="password" class="form-control boxshadow" required placeholder="Student Confirm password" name="cpassword">
+            </div>
+            <div class="col-md-6 form-group">
+                <select class="form-control boxshadow" name="UserRole">
+                    <option>Student</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary signup-btn mb-5">Sign up</button>
+    </div>
+</form>

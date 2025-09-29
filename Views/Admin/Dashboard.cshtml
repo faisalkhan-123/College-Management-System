@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+
+<!-- Main Dashboard -->
+<div class="col-md-12 p-4">
+
+    <h4>Welcome to Admin Dashboard</h4>
+    <p class="text-muted">Your account is not verified! Please verify your email address.</p>
+
+    <!-- Cards Row -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <div class="dashboard-card card-blue">
+                <h5>Total Students</h5>
+                <h3>0</h3>
+                <p>This Month</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dashboard-card card-gray">
+                <h5>Total Teacher</h5>
+                <h3>0</h3>
+                <p>This Month</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dashboard-card card-red">
+                <h5>Revenue</h5>
+                <h3>$0</h3>
+                <p>This Month</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="dashboard-card card-green">
+                <h5>Total Fees</h5>
+                <h3>$0</h3>
+                <p>This Month</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-4 bg-white shadow rounded">
+                <h5>Statistics</h5>
+                <p>Expenses: $0</p>
+                <p>Income: $0</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-4 bg-white shadow rounded">
+                <h5>Estimated Fees This Month</h5>
+                <h3 class="text-danger">$0</h3>
+            </div>
+        </div>
+    </div>
+</div>

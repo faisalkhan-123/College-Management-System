@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "PrintBasic";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+@*<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <table class="table">
+                <thead class="table table-bordered table-danger table-hover table-responsive">
+                    <tr>*@
+                        <h2 class="text-center text-primary" style="font-weight:700;">Student Basic Details </h2>
+                        <table class="table " id="myTable">
+                            <thead class="table table-bordered table-primary table-hover table-responsive">
+                                <tr>
+                                    <td>Sr</td>
+                                    <td>Name</td>
+                                    <td>Registration</td>
+                                    <td>Father</td>
+                                    <td>Course</td>
+                                    <td>Phone</td>
+                                    <td>College</td>
+                                    <td>Email</td>
+                                </tr>
+                            </thead>
+                            <tbody class="table-danger">
+                                @foreach (System.Data.DataRow row in Model.Rows)
+                                {
+                                    <tr>
+                                        <td>@row["STUDENTID"]</td>
+                                        <td>@row["Studentname"]</td>
+                                        <td>@row["RegistrationNo"]</td>
+                                        <td>@row["FatherName"]</td>
+                                        <td>@row["Course"]</td>
+                                        <td>@row["Mobile"]</td>
+                                        <td>@row["rollnumber"]</td>
+                                        <td>@row["Email"]</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>

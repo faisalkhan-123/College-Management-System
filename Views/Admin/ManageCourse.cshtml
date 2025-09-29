@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "ManageCourse";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+
+
+
+<div class="container my-4">
+    <h2 class="text-center mb-4">Course </h2>
+
+    <form method="post" enctype="multipart/form-data">
+        <!-- Student Information -->
+        <div class="form-section">
+            <div class="section-title">Course Information</div>
+            <hr class="h-50">
+            <div class="row">
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Course Name*</label>
+                    <input type="text" class="form-control boxshadow" required name="CourseName" placeholder="Course Name*">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip" required name="CourseCode">Course Code</label>
+                    <input type="text" class="form-control boxshadow" placeholder="Course Code">
+                </div>
+
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Duration*</label>
+                    <select class="form-select" name="Duration">
+                        <option selected disabled>Select</option>
+                        <option>3 Years</option>
+                        <option>4 years</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Department*</label>
+                    <select class="form-select" name="Department">
+                        <option selected disabled>Select</option>
+                        <option>Computer Science</option>
+                        <option>Electrical</option>
+                        <option>Electronic</option>
+                        <option>Dairy</option>
+                        <option>Agricultre</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip">Description*</label>
+                    <input type="text" class="form-control boxshadow" required name="Description" placeholder="Description">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip" required name="CreatedDate">CreatedDate</label>
+                    <input type="date" class="form-control boxshadow">
+                </div>
+                <div class="col-md-4 form-group">
+                    <label class="form-label-chip-optional">Status</label>
+                    <select class="form-select" name="Status">
+                        <option selected disabled>Status</option>
+                        <option>Active</option>
+                        <option>Inactive</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mb-5">
+            <input type="submit" value="Submit" class="btn btn-primary mb-5 text-center" />
+            <input type="reset" value="Reset" class="btn btn-primary mb-5 text-center" />
+        </div>
+    </form>
+</div>

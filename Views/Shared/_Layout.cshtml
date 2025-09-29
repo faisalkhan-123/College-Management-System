@@ -1,0 +1,507 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/css/all.min.css" rel="stylesheet">
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/jQuery/js/jquery-3.7.1.js"></script>
+    <script src="~/Content/js/bootstrap.bundle.js"></script>
+</head>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: linear-gradient(to left,#072151,#093079);
+        color: white;
+    }
+
+    #splash {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0f5ef7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        animation: slideDown 1s forwards;
+        z-index: 9999;
+    }
+
+    @@keyframes slideDown {
+        from {
+            top: -100%;
+        }
+
+        to {
+            top: 0;
+        }
+    }
+
+    @@keyframes slideUp {
+        from {
+            top: 0;
+        }
+
+        to {
+            top: -100%;
+        }
+    }
+
+    #main {
+        display: none;
+        font-family: Arial, sans-serif;
+    }
+
+    .navbar-custom {
+        background: linear-gradient(to left,#072151,#093079);
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white !important;
+    }
+
+    .nav-link {
+        color: white !important;
+        font-size: 16px;
+    }
+
+    .sign {
+        border-radius: 10px;
+        background: white;
+        color: black !important;
+        height: 40px;
+        margin-left: 10px;
+        min-width: 100px;
+    }
+        .sign:hover {
+            background: white;
+        }
+    .header{
+        font-size:50px;
+        margin-top:20px;
+        font-weight:900;
+    }
+    .pcolor {
+        color: #6f7ab9;
+    }
+    /* Responsive fix */
+    @@media (max-width: 768px) {
+        .navbar-nav {
+            text-align: center;
+        }
+
+        .sign{
+            width: 100%;
+            margin: 5px 0;
+        }
+    }
+    .hero-section {
+  position: relative;
+  padding: 20px 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-container {
+  position: relative;
+  display: inline-block;
+}
+
+.main-img {
+  max-width: 600px;
+  width: 90%;
+  z-index: 2;
+  position: relative;
+}
+
+/* Small images close to laptop */
+.side-img {
+  position: absolute;
+  width: 95px;
+  z-index: 3;
+  animation: float 4s ease-in-out infinite;
+}
+    .side-img1 {
+        position: absolute;
+        width: 60px;
+        z-index: 3;
+        animation: float 4s ease-in-out infinite;
+    }
+
+/* Tight positioning like eSkooly */
+.img1 { top: 40%; left: 60px; }   /* Chart image (left side) */
+.img2 { top: 23%; right: 120px; }  /* Mobile image (right side) */
+.img4 { bottom: 37%; right: 12%; } /* Tick bottom-right */
+
+@@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Responsive Fix */
+@@media (max-width: 768px) {
+  .main-img { max-width: 100%; }
+  .side-img { width: 60px; }
+  .img1 { top: 10%; left: -30px; }
+  .img2 { top: 10%; right: -30px; }
+  .img3 { bottom: 2%; left: 5%; }
+  .img4 { bottom: 5%; right: 5%; }
+}
+    .middle {
+        background: #0f5ef7;
+        margin: 0%;
+        padding: 0%;
+    }
+    .feature-section {
+  background: #1a73e8; /* Blue background */
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+}
+
+.feature-container {
+  position: relative;
+  display: inline-block;
+}
+
+.mobile-img {
+  max-width: 270px;
+  width: 100%;
+  z-index: 2;
+  position: relative;
+}
+
+/* Circle icons */
+.icon {
+  position: absolute;
+  background: #ff7f7f;
+  border-radius: 50%;
+  padding: 15px;
+  width: 70px;
+  height: 70px;
+  margin-left:70px;
+  display: flex;
+  margin-right:70px;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.icon img {
+  max-width: 40px;
+  height: auto;
+}
+
+/* Positioning of icons (around mobile image) */
+.icon1 { top: 5%; left: -90px; }    /* top-left */
+.icon2 { top: 5%; right: -90px; }   /* top-right */
+.icon3 { top: 35%; left: -110px; }  /* middle-left */
+.icon4 { top: 35%; right: -110px; } /* middle-right */
+.icon5 { bottom: 15%; left: -90px; }/* bottom-left */
+.icon6 { bottom: 15%; right: -90px;}/* bottom-right */
+
+/* Responsive */
+@@media (max-width: 768px) {
+  .mobile-img { max-width: 250px; }
+  .icon {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+  }
+  .icon img { max-width: 25px; }
+  .icon1 { top: 0; left: -60px; }
+  .icon2 { top: 0; right: -60px; }
+  .icon3 { top: 35%; left: -70px; }
+  .icon4 { top: 35%; right: -70px; }
+  .icon5 { bottom: 10%; left: -60px; }
+  .icon6 { bottom: 10%; right: -60px;}
+}
+/* Circle icons */
+.icon {
+  position: absolute;
+  background: #ff7f7f;
+  border-radius: 50%;
+  padding: 15px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+
+  /* Animation */
+  animation: float 4s ease-in-out infinite;
+}
+
+.icon img {
+  max-width: 40px;
+  height: auto;
+}
+
+/* Floating effect */
+@@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Positioning of icons (around mobile image) */
+.icon1 { top: 5%; left: -90px; animation-delay: 0s; }
+.icon2 { top: 5%; right: -90px; animation-delay: 0.5s; }
+.icon3 { top: 35%; left: -110px; animation-delay: 1s; }
+.icon4 { top: 35%; right: -110px; animation-delay: 1.5s; }
+.icon5 { bottom: 15%; left: -90px; animation-delay: 2s; }
+.icon6 { bottom: 15%; right: -90px; animation-delay: 2.5s; }
+.whyus-section {
+  background: linear-gradient(to right, #072151, #082e73);
+  padding: 100px 0;
+}
+
+.monitor-img {
+  max-width: 400px;
+  z-index: 2;
+  position: relative;
+}
+
+.floating-img {
+  position: absolute;
+  width: 140px;
+  animation: float 4s ease-in-out infinite;
+  z-index: 3;
+}
+
+/* Positions of small images */
+.img1 { top: 30%; left: 3%; animation-delay: 1s; }
+.img2 { top: 10%; right: 70%; animation-delay: 1s; }
+.img3 { bottom: 20%; left: 5%; animation-delay: 2s; }
+
+/* Floating animation */
+@@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@@media (max-width:768px){
+  .monitor-img{ max-width: 100%; }
+  .floating-img{ width: 80px; }
+}
+    .team-section {
+        background: linear-gradient(to right, #072151, #082e73);
+        padding: 0px 0;
+        color: white;
+    }
+
+    .characters {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+        .characters img {
+            max-height: 320px;
+        }
+
+    .signup-btn {
+        background: #ff7f9f;
+        border: none;
+        color: white !important;
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        .signup-btn:hover {
+            background: #ff4f80;
+        }
+        @*start about*@
+    .message-section {
+        background: linear-gradient(to right, #072151, #082e73);
+        padding: 100px 0;
+        color: white;
+    }
+    .image-content {
+        text-align: center;
+    }
+.laptop {
+  width: 400px;              /* apne hisaab se size */
+  animation: floatY 4s ease-in-out infinite;
+}
+
+@@keyframes floatY {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(20px); }  /* neeche */
+  100% { transform: translateY(0); }
+}
+    
+@*start contact*@
+    .contact-section {
+        background: linear-gradient(to right, #072151, #082e73);
+    }
+    span {
+        color: white;
+    }
+        span:hover {
+            border-top: 2px solid #6ebdff;
+            color: #b3b6bd;
+        }
+    #para1, #para2 {
+        display: none;
+    }
+    #message{
+        height:100px;
+        width:630px;
+        border-radius:5px;
+    }
+    .ufooter {
+        min-height: 250px;
+        color: #c2c4c7;
+    }
+
+    .footerabout {
+        font-size: 18px;
+    }
+
+    .footermenu {
+        text-align: center;
+        padding-top: 10px;
+        text-decoration:none;
+    }
+    /* Hover dropdown (mega menu) */
+    .dropdown-mega {
+        position: static;
+    }
+
+    .dropdown-mega-menu {
+        display: none;
+        position: absolute;
+        left: 40px;
+        right: 60px;
+        top: 100%;
+        background: #fff;
+        padding: 30px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    .dropdown-mega:hover .dropdown-mega-menu {
+        display: block;
+    }
+
+    .mega-col h6 {
+        font-weight: bold;
+        margin-bottom: 15px;
+        color:black;
+    }
+
+    .mega-col a {
+        display: block;
+        color: #333;
+        text-decoration: none;
+        margin-bottom: 8px;
+    }
+
+        .mega-col a:hover {
+            color: #0d6efd;
+        }
+</style>
+<body>
+    @*<div id="splash">
+        Loading...
+    </div>*@
+
+    <div>
+        <!-- Bootstrap Navbar -->
+        <nav class="navbar navbar-expand-lg sticky-top navbar-custom">
+            <div class="container-fluid">
+                <!-- Left Side: Brand -->
+                <a class="navbar-brand" href="#">College Ms</a>
+
+                <!-- Hamburger Toggle for Mobile -->
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Center + Right -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- Center Menu -->
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item dropdown-mega">
+                            <span class="nav-link">Products</span>
+                            <div class="dropdown-mega-menu">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-3 mega-col">
+                                            <h6>For Desktop</h6>
+                                            <a href="#">Windows</a>
+                                            <a href="#">MacOS</a>
+                                            <a href="#">Linux</a>
+                                        </div>
+                                        <div class="col-md-3 mega-col">
+                                            <h6>Mobile Apps</h6>
+                                            <a href="#">Android</a>
+                                            <a href="#">iOS</a>
+                                            <a href="#">SMS Gateway</a>
+                                        </div>
+                                        <div class="col-md-3 mega-col">
+                                            <h6>More</h6>
+                                            <a href="#">Live Class</a>
+                                            <a href="#">Pro Version</a>
+                                            <a href="#">LMS</a>
+                                        </div>
+                                        <div class="col-md-3 mega-col ">
+                                            <h6>Get Started</h6>
+                                            <p class="text-black">World’s #1 ranked free, powerful, easy-to-use platform.</p>
+                                            <a class="btn btn-primary btn-sm" href="@Url.Action("Sign","Home")">Sign Up</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Help</a>
+                        </li>
+                    </ul>
+
+                    <!-- Right Buttons -->
+                    <div class="d-flex">
+                        <a href="@Url.Action("Sign", "Home")" class="btn btn-primary"><i class="fa fa-envelope"></i>Sign Page</a>
+                        <a href="@Url.Action("login", "Home")" class="btn sign btn-primary"> <i class="fa fa-envelope"></i> Login</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class=" body-content">
+            @RenderBody()
+            </div>
+</body>
+</html>
+
+
+
+@*<script>
+    setTimeout(() => {
+        let splash = document.getElementById("splash");
+        splash.style.animation = "slideUp 1s forwards";
+
+        setTimeout(() => {
+            splash.style.display = "none";
+            document.getElementById("main").style.display = "block";
+        }, 1000);
+    }, 1000);
+</script>*@

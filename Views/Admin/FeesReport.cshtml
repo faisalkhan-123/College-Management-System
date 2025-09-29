@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "FeesReport";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+    <div class="container my-4 sh">
+        <form method="post">
+            <!-- Student Information -->
+            <div class="form-section mb-5">
+                <div class="section-title">Fees Report</div>
+                <hr class="h-50">
+                <div class="row">
+                    <!-- Student Details -->
+                    <div class="col-md-4 form-group">
+                        <label class="form-label-chip">Roll Number</label>
+                        <input type="text" class="form-control boxshadow" name="RollNo" readonly>
+                    </div>
+
+                    <div class="col-md-4 form-group">
+                        <label class="form-label-chip">Student Name</label>
+                        <input type="text" class="form-control boxshadow" name="StudentName" readonly>
+                    </div>
+
+                    <div class="col-md-4 form-group">
+                        <label class="form-label-chip">Class / Section</label>
+                        <input type="text" class="form-control boxshadow" name="ClassSection" readonly>
+                    </div>
+
+                    <div class="col-md-4 form-group">
+                        <label class="form-label-chip">Admission Number</label>
+                        <input type="text" class="form-control boxshadow" name="AdmissionNo" readonly>
+                    </div>
+
+                    <!-- Fee Details -->
+                    <div class="col-md-4 form-group">
+                        <label class="form-label-chip">Fee Type</label>
+                        <select class="form-select" name="FeeType">
+                            <option>Tuition</option>
+                            <option>Transport</option>
+                            <option>Library</option>
+                            <option>Lab</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 form-group">
+                        <label class="form-label-chip">Fee Amount</label>
+                        <input type="number" class="form-control boxshadow" name="FeeAmount" placeholder="Enter Amount">
+                    </div>
+
+                    <div class="col-md-4 form-group">
+                        <label class="form-label-chip">Discount / Scholarship</label>
+                        <input type="number" class="form-control boxshadow" name="Discount" placeholder="Optional">
+                    </div>
+
+                    <div class="col-md-4 form-group">
+                        <label class="form-label-chip">Total Amount</label>
+                        <input type="number" class="form-control boxshadow" name="TotalAmount" placeholder="Total">
+                    </div>
+
+                    <!-- Payment Status -->
+                    <div class="col-md-4 form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="PaymentStatus" id="paid" value="Paid" checked>
+                            <label class="form-check-label" for="paid">Paid</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="PaymentStatus" id="pending" value="Pending">
+                            <label class="form-check-label" for="pending">Pending</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="PaymentStatus" id="partial" value="Partially Paid">
+                            <label class="form-check-label" for="partial">Partially Paid</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 form-group">
+                        <label class="form-label-chip">Payment Mode</label>
+                        <select class="form-select" name="PaymentMode">
+                            <option>Cash</option>
+                            <option>Card</option>
+                            <option>Online Transfer</option>
+                        </select>
+                    </div>
+
+                    <!-- Date Fields -->
+                    <div class="col-md-4 form-group">
+                        <label class="form-label-chip">Payment Date</label>
+                        <input type="date" class="form-control boxshadow" name="PaymentDate">
+                    </div>
+
+                    <div class="col-md-4 form-group">
+                        <label class="form-label-chip">Due Date</label>
+                        <input type="date" class="form-control boxshadow" name="DueDate">
+                    </div>
+
+                    <!-- Remarks -->
+                    <div class="col-md-12 form-group">
+                        <label class="form-label-chip-optional">Remarks</label>
+                        <input type="text" class="form-control boxshadow" name="Remarks" placeholder="Optional">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="col-12 mt-3">
+                        <button type="submit" class="btn btn-primary">Submit / Generate Report</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

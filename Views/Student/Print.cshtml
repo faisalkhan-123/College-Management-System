@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Print";
+    Layout = "~/Views/Shared/StudentLayout.cshtml";
+}
+
+<h2 class="text-center text-primary" style="font-weight:700;">Student Basic Details </h2>
+<table class="table " id="myTable">
+    <thead class="table table-bordered table-primary table-hover table-responsive">
+        <tr>
+            <td>Sr</td>
+            <td>Name</td>
+            <td>Registration</td>
+            <td>Father</td>
+            <td>Course</td>
+            <td>Phone</td>
+            <td>College</td>
+            <td>Email</td>
+        </tr>
+    </thead>
+    <tbody class="table-danger">
+        @foreach (System.Data.DataRow row in Model.Rows)
+        {
+            <tr>
+                <td>@row["STUDENTID"]</td>
+                <td>@row["Studentname"]</td>
+                <td>@row["RegistrationNo"]</td>
+                <td>@row["FatherName"]</td>
+                <td>@row["Course"]</td>
+                <td>@row["Mobile"]</td>
+                <td>@row["rollnumber"]</td>
+                <td>@row["Email"]</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+@*@model System.Data.DataRow
+
+<style>
+    .change-password {
+        height: 440px;
+        width: 500px;
+        background: white;
+        margin: 20px auto;
+    }
+
+    .text {
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .form {
+        box-sizing: border-box;
+        height: 40px;
+        width: 400px;
+        margin-left: 50px;
+        border: 1px solid black;
+        border-radius: 20px;
+        padding-left: 15px;
+    }
+</style>
+<div class="change-password shadow-sm">
+    <h3 class="text pt-5">Change Your Password</h3><br /><br />
+    <input type="text" hidden name="studentId" value="@Model["studentId"]" />
+    <form method="post">
+        <label class="ps-5">New Password</label><br />
+        <input type="password" class="form" placeholder="Enter your new password" name="password" value="@Model["password"]" /><br /><br />
+        <label class="ps-5">Confirm Password</label><br />
+        <input type="password" class="form" placeholder="Confirm password" name="cpassword" value="@Model["cpassword"]" /><br /><br /><br />
+        <button class="form bg-info text-white" style="border:none;">Change Now</button><br /><br />
+        <span class="ps-5 text-danger">Please do't share your login password to anyone for your</span>
+    </form>
+</div>*@

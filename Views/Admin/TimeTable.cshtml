@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "TimeTable";
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+<div class="container my-4 sh">
+    <!-- Student Information -->
+    <div class="form-section mb-5">
+        <div class="section-title">Manage Fees</div>
+        <hr class="h-50">
+        <div class="row g-3">
+
+            <div class="col-md-4 form-group">
+                <label class="form-label-chip">Class / Section</label>
+                <input type="text" name="ClassSection" class="form-control" required />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label class="form-label-chip">Day</label>
+                <select name="Day" class="form-select">
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Wednesday</option>
+                    <option>Thursday</option>
+                    <option>Friday</option>
+                    <option>Saturday</option>
+                </select>
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label class="form-label-chip">Period</label>
+                <input type="number" name="Period" class="form-control" required />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label class="form-label-chip">Subject</label>
+                <input type="text" name="Subject" class="form-control" required />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label class="form-label-chip">Teacher</label>
+                <input type="text" name="Teacher" class="form-control" required />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label class="form-label-chip">Start Time</label>
+                <input type="time" name="StartTime" class="form-control" required />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label class="form-label-chip">End Time</label>
+                <input type="time" name="EndTime" class="form-control" required />
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label class="form-label-chip">Room</label>
+                <input type="text" name="Room" class="form-control" />
+            </div>
+            <div class="col-md-4 form-group">
+                <label class="form-label-chip-optional ">Remarks</label>
+                <input type="text" name="Remarks" class="form-control" />
+            </div>
+
+            <div class="col-12 mt-3">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+       
+
+
